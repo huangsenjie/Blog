@@ -361,7 +361,7 @@ baidu_analytics: b50112d6ccfad9033538ee768e32a696
 # Disqus
 disqus:
   enable: true
-  shortname:
+  shortname: hsj
   count: true
 
 # Hypercomments
