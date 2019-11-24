@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。 惯用的两数方式1234567891011121314151617181920public class TwoNumSwap &amp;#123;    public static void main(String[] args) &amp;#123;        &#x2F;&#x2F;为什么要使用数组?">
+<meta name="description" content="在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。 惯用的两数方式12345678910111213141516171819public class TwoNumSwap &amp;#123;    public static void main(String[] args) &amp;#123;        Integer[] two = &amp;#">
 <meta name="keywords" content="异或,二进制,两数交换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么两个二进制值能通过异或交换？">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;12&#x2F;operation&#x2F;xor-two-number-swap&#x2F;">
 <meta property="og:site_name" content="HSJ_BLOG">
-<meta property="og:description" content="在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。 惯用的两数方式1234567891011121314151617181920public class TwoNumSwap &amp;#123;    public static void main(String[] args) &amp;#123;        &#x2F;&#x2F;为什么要使用数组?">
+<meta property="og:description" content="在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。 惯用的两数方式12345678910111213141516171819public class TwoNumSwap &amp;#123;    public static void main(String[] args) &amp;#123;        Integer[] two = &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-24T12:20:25.237Z">
+<meta property="og:updated_time" content="2019-11-24T12:39:49.196Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -362,17 +362,16 @@
 
       
         <p>在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。</p>
-<h3 id="惯用的两数方式"><a href="#惯用的两数方式" class="headerlink" title="惯用的两数方式"></a>惯用的两数方式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoNumSwap</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//为什么要使用数组?</span></span><br><span class="line">        Integer[] two = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">        swap(two);</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Integer[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//通过临时变量来完成交换</span></span><br><span class="line">        Integer temp = arr[<span class="number">1</span>];</span><br><span class="line">        arr[<span class="number">1</span>] = arr[<span class="number">0</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Integer a, Integer b)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"交换前： a="</span> + a + <span class="string">",b="</span> + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="惯用的两数方式"><a href="#惯用的两数方式" class="headerlink" title="惯用的两数方式"></a>惯用的两数方式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoNumSwap</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer[] two = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">        swap(two);</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Integer[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//通过临时变量来完成交换</span></span><br><span class="line">        Integer temp = arr[<span class="number">1</span>];</span><br><span class="line">        arr[<span class="number">1</span>] = arr[<span class="number">0</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Integer a, Integer b)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"交换前： a="</span> + a + <span class="string">",b="</span> + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ps: 为什么要使用数组?<a href="../java/java-swap.md">如何用java来交换两个数</a></p>
 <hr>
 <p>输出</p>
-<hr>
 <p>交换前： a=1,b=2</p>
 <p>交换前： a=2,b=1</p>
 <hr>
 <h3 id="使用异或交换"><a href="#使用异或交换" class="headerlink" title="使用异或交换"></a>使用异或交换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoNumSwap</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer[] two = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">        swapByXor(two);</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swapByXor</span><span class="params">(Integer[] arr)</span> </span>&#123;</span><br><span class="line">        arr[<span class="number">0</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">        arr[<span class="number">1</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Integer a, Integer b)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"交换前： a="</span> + a + <span class="string">",b="</span> + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>输出</p>
-<hr>
 <p>交换前： a=1,b=2</p>
 <p>交换前： a=2,b=1</p>
 <hr>
@@ -496,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Blog/2019/11/13/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/Blog/2019/11/24/java/java-swap/" rel="prev" title="如何用java来交换两个数">
+                如何用java来交换两个数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -589,7 +588,7 @@
               
                 <a href="/Blog/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
