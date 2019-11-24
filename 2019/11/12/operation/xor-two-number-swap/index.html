@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="异或, 二进制, 两数交换," />
+  <meta name="keywords" content="异或,二进制,两数交换," />
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。 惯用的两数方式1234567891011121314151617181920public class TwoNumSwap &amp;#123;    public static void main(String[] args) &amp;#123;        &#x2F;&#x2F;为什么要使用数组?">
-<meta name="keywords" content="异或, 二进制, 两数交换">
+<meta name="keywords" content="异或,二进制,两数交换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么两个二进制值能通过异或交换？">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;12&#x2F;operation&#x2F;xor-two-number-swap&#x2F;">
 <meta property="og:site_name" content="HSJ_BLOG">
 <meta property="og:description" content="在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。 惯用的两数方式1234567891011121314151617181920public class TwoNumSwap &amp;#123;    public static void main(String[] args) &amp;#123;        &#x2F;&#x2F;为什么要使用数组?">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-24T12:01:31.813Z">
+<meta property="og:updated_time" content="2019-11-24T12:20:25.237Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -361,27 +361,33 @@
       
 
       
-        <p>在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，<br>它也常用于各种排序算法中。</p>
-<h3 id="惯用的两数方式"><a href="#惯用的两数方式" class="headerlink" title="惯用的两数方式"></a>惯用的两数方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class TwoNumSwap &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //为什么要使用数组?</span><br><span class="line">        Integer[] two = &#123;1, 2&#125;;</span><br><span class="line">        print(two[0], two[1]);</span><br><span class="line">        swap(two);</span><br><span class="line">        print(two[0], two[1]);</span><br><span class="line">    &#125;</span><br><span class="line">    static void swap(Integer[] arr) &#123;</span><br><span class="line">        //通过临时变量来完成交换</span><br><span class="line">        Integer temp = arr[1];</span><br><span class="line">        arr[1] = arr[0];</span><br><span class="line">        arr[0] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static void print(Integer a, Integer b) &#123;</span><br><span class="line">        System.out.println(&quot;交换前： a=&quot; + a + &quot;,b=&quot; + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。</p>
+<h3 id="惯用的两数方式"><a href="#惯用的两数方式" class="headerlink" title="惯用的两数方式"></a>惯用的两数方式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoNumSwap</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//为什么要使用数组?</span></span><br><span class="line">        Integer[] two = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">        swap(two);</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Integer[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//通过临时变量来完成交换</span></span><br><span class="line">        Integer temp = arr[<span class="number">1</span>];</span><br><span class="line">        arr[<span class="number">1</span>] = arr[<span class="number">0</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Integer a, Integer b)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"交换前： a="</span> + a + <span class="string">",b="</span> + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>交换前： a=1,b=2</p>
+<p>输出</p>
+<hr>
+<p>交换前： a=1,b=2</p>
 <p>交换前： a=2,b=1</p>
 <hr>
 <h3 id="使用异或交换"><a href="#使用异或交换" class="headerlink" title="使用异或交换"></a>使用异或交换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoNumSwap</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer[] two = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">        swapByXor(two);</span><br><span class="line">        print(two[<span class="number">0</span>], two[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swapByXor</span><span class="params">(Integer[] arr)</span> </span>&#123;</span><br><span class="line">        arr[<span class="number">0</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">        arr[<span class="number">1</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Integer a, Integer b)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"交换前： a="</span> + a + <span class="string">",b="</span> + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h2><p>交换前： a=1,b=2</p>
+<p>输出</p>
+<hr>
+<p>交换前： a=1,b=2</p>
 <p>交换前： a=2,b=1</p>
 <hr>
-<h4 id="为什么异或可以交换两数"><a href="#为什么异或可以交换两数" class="headerlink" title="为什么异或可以交换两数"></a>为什么异或可以交换两数</h4><p>在计算机中，当两个数异或得出第三个数时，从三个数中任意取两个数进行异或结果等于第三个数。</p>
+<h3 id="为什么异或可以交换两数"><a href="#为什么异或可以交换两数" class="headerlink" title="为什么异或可以交换两数"></a>为什么异或可以交换两数</h3><p>在计算机中，当两个数异或得出第三个数时，从三个数中任意取两个数进行异或结果等于第三个数。</p>
 <p>由此我们可以得出：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoNumSwap</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swapByXor</span><span class="params">(Integer[] arr)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//设arr[0] = a, arr[1] = b, a ^ b = c</span></span><br><span class="line">            <span class="comment">//arr[0] = c</span></span><br><span class="line">            arr[<span class="number">0</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">            <span class="comment">//c ^ b = a, arr[1] = a</span></span><br><span class="line">            arr[<span class="number">1</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">            <span class="comment">//c ^ a = b, arr[0] = b</span></span><br><span class="line">            arr[<span class="number">0</span>] = arr[<span class="number">0</span>] ^ arr[<span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line">            <span class="comment">//结果: arr[0] = b, arr[1] = a  </span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="为什么三个数任意两个异或的结果等于另一个？"><a href="#为什么三个数任意两个异或的结果等于另一个？" class="headerlink" title="为什么三个数任意两个异或的结果等于另一个？"></a>为什么三个数任意两个异或的结果等于另一个？</h4><p>此时，我们依然知道异或可以具备了交换两数的性质。但我们又有了新的问题，为什么异或具备这样的性质呢？<br>我们来看一看关于异或的定义。</p>
+<h3 id="为什么三个数任意两个异或的结果等于另一个？"><a href="#为什么三个数任意两个异或的结果等于另一个？" class="headerlink" title="为什么三个数任意两个异或的结果等于另一个？"></a>为什么三个数任意两个异或的结果等于另一个？</h3><p>此时，我们依然知道异或可以具备了交换两数的性质。但我们又有了新的问题，为什么异或具备这样的性质呢？<br>我们来看一看关于异或的定义。</p>
 <hr>
 <p>在计算机中，当两个数异或得出第三个数时，从三个数中任意取两个数进行异或结果等于第三个数。</p>
-<h2 id="重点在于第一句话-在计算机中。"><a href="#重点在于第一句话-在计算机中。" class="headerlink" title="重点在于第一句话: 在计算机中。"></a>重点在于第一句话: 在计算机中。</h2><p>异或是一种位运算，也就是对二进制值的运算。计算机中所有的数据，指令最终都用二进制表达，所以<br>这句话的意思应该是：在对于二进制的运算中。</p>
+<p><strong>重点在于第一句话: 在计算机中。</strong></p>
+<hr>
+<p>异或是一种位运算，也就是对二进制值的运算。计算机中所有的数据，指令最终都用二进制表达，所以这句话的意思应该是：在对于二进制的运算中。</p>
 <p>我们来看一个例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   10101010</span><br><span class="line">^  11110000</span><br><span class="line"> ------------</span><br><span class="line">   01011010</span><br></pre></td></tr></table></figure>
-<p>既然是位运算，我们只需将每个位独立的看，对于二进制值而言，一个位无非就1和0两种情况，<br>两个位进行异或可以很容易的列举出它们的所以结果。</p>
+<p>既然是位运算，我们只需将每个位独立的看，对于二进制值而言，一个位无非就1和0两种情况，两个位进行异或可以很容易的列举出它们的所以结果。</p>
 <table>
 <thead>
 <tr>
@@ -449,7 +455,7 @@
 <td align="center">1</td>
 </tr>
 </tbody></table>
-<p>由上表可以看出，对于任何一个位而言，它都满足从三个数中任意取两个数进行异或结果等于第三个数。<br>故而对于对于任何二进制值的异或运算都可以满足该性质。</p>
+<p>由上表可以看出，对于任何一个位而言，它都满足从三个数中任意取两个数进行异或结果等于第三个数。故而对于对于任何二进制值的异或运算都可以满足该性质。</p>
 
       
     </div>
@@ -467,7 +473,11 @@
       
         <div class="post-tags">
           
-            <a href="/Blog/tags/%E5%BC%82%E6%88%96-%E4%BA%8C%E8%BF%9B%E5%88%B6-%E4%B8%A4%E6%95%B0%E4%BA%A4%E6%8D%A2/" rel="tag"># 异或, 二进制, 两数交换</a>
+            <a href="/Blog/tags/%E5%BC%82%E6%88%96/" rel="tag"># 异或</a>
+          
+            <a href="/Blog/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag"># 二进制</a>
+          
+            <a href="/Blog/tags/%E4%B8%A4%E6%95%B0%E4%BA%A4%E6%8D%A2/" rel="tag"># 两数交换</a>
           
         </div>
       
@@ -601,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/Blog/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -634,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#惯用的两数方式"><span class="nav-number">1.</span> <span class="nav-text">惯用的两数方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number"></span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用异或交换"><span class="nav-number">1.</span> <span class="nav-text">使用异或交换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出-1"><span class="nav-number"></span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么异或可以交换两数"><span class="nav-number">0.1.</span> <span class="nav-text">为什么异或可以交换两数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么三个数任意两个异或的结果等于另一个？"><span class="nav-number">0.2.</span> <span class="nav-text">为什么三个数任意两个异或的结果等于另一个？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点在于第一句话-在计算机中。"><span class="nav-number"></span> <span class="nav-text">重点在于第一句话: 在计算机中。</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#惯用的两数方式"><span class="nav-number">1.</span> <span class="nav-text">惯用的两数方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用异或交换"><span class="nav-number">2.</span> <span class="nav-text">使用异或交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么异或可以交换两数"><span class="nav-number">3.</span> <span class="nav-text">为什么异或可以交换两数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么三个数任意两个异或的结果等于另一个？"><span class="nav-number">4.</span> <span class="nav-text">为什么三个数任意两个异或的结果等于另一个？</span></a></li></ol></div>
             
 
           </div>
@@ -719,6 +729,8 @@
   
 
 
+  
+
 
 
 
@@ -757,6 +769,11 @@
   
   
     <script type="text/javascript" src="/Blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/Blog/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
