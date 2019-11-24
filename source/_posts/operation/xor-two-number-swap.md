@@ -34,7 +34,9 @@ public class TwoNumSwap {
     }
 }
 ```
+
 ps: 为什么要使用数组?[如何用java来交换两个数](../java/java-swap.md)
+
 ***
 输出
 
