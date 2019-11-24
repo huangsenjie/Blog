@@ -12,11 +12,11 @@ categories:
 在初学编程的时候我们总会通过一些简单的编程题来练习语法。两个数的交换就是常遇到的题目之一，它也常用于各种排序算法中。
 
 ### 惯用的两数方式
+
 ```java
 public class TwoNumSwap {
 
     public static void main(String[] args) {
-        //为什么要使用数组?
         Integer[] two = {1, 2};
         print(two[0], two[1]);
         swap(two);
@@ -34,10 +34,10 @@ public class TwoNumSwap {
     }
 }
 ```
+ps: 为什么要使用数组?[如何用java来交换两个数](../java/java-swap.md)
 ***
 输出
 
----
 交换前： a=1,b=2
 
 交换前： a=2,b=1
@@ -69,7 +69,6 @@ public class TwoNumSwap {
 ***
 输出
 
----
 交换前： a=1,b=2
 
 交换前： a=2,b=1
