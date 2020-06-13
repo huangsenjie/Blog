@@ -290,7 +290,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-13T22:59:26+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-13T23:00:24+08:00">
                 2020-06-13
               </time>
             
@@ -354,6 +354,160 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2020/06/13/mysql/select-limit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hsj">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Blog/uploads/heibai.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HSJ_BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Blog/2020/06/13/mysql/select-limit/" itemprop="url">MySQL在Select中使用Limit的优化问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-13T22:29:31+08:00">
+                2020-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/Blog/categories/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Blog/2020/06/13/mysql/select-limit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2020/06/13/mysql/select-limit/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在阿里的JAVA开发手册中有这么一句</p>
+<p><img src="/Blog/2020/06/13/mysql/select-limit/1.png" alt></p>
 
           
         
@@ -506,7 +660,7 @@
       
         
           
-            <h1 id="windows上的通信方式"><a href="#windows上的通信方式" class="headerlink" title="windows上的通信方式"></a>windows上的通信方式</h1><h2 id="1-TCP-IP通信"><a href="#1-TCP-IP通信" class="headerlink" title="1. TCP/IP通信"></a>1. TCP/IP通信</h2><p>通过TCP/IP是MySQL最常用的MySQL服务器和客户端通信方式，<br>位于应用层的应用程序要通过TCP/IP协议族通信需要为进程指<br>定一个端口号。故而，我们需要执行命令</p>
+            <h1 id="windows上的通信方式"><a href="#windows上的通信方式" class="headerlink" title="windows上的通信方式"></a>windows上的通信方式</h1><h2 id="1-TCP-IP通信"><a href="#1-TCP-IP通信" class="headerlink" title="1. TCP/IP通信"></a>1. TCP/IP通信</h2><p>通过TCP/IP是MySQL最常用的MySQL服务器和客户端通信方式，<br>位于应用层纄应用程序要通过TCP/IP协议族通信需要为进程指<br>定一个端口号。故而，我们需要执行命令</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -P3306</span><br></pre></td></tr></table></figure>
 <p>此时客户端默认使用tcp通信</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
@@ -1161,7 +1315,7 @@
               
                 <a href="/Blog/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1183,7 +1337,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/Blog/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
