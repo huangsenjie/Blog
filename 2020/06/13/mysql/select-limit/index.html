@@ -79,16 +79,23 @@
 
 
 
-<meta name="description" content="在阿里的JAVA开发手册中有这么一句">
+<meta name="description" content="在阿里的JAVA开发手册中有这么一句  12345678910111213141516171819202122232425262728#建表CREATE TABLE &#96;movies&#96; (  &#96;id&#96; int(11) NOT NULL AUTO_INCREMENT,  &#96;title&#96; varchar(20) DEFAULT NULL,  &#96;year&#96; int(11) DEFAULT NULL,  &#96;">
 <meta name="keywords" content="MySQL,select,limit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL在Select中使用Limit的优化问题">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;">
 <meta property="og:site_name" content="HSJ_BLOG">
-<meta property="og:description" content="在阿里的JAVA开发手册中有这么一句">
+<meta property="og:description" content="在阿里的JAVA开发手册中有这么一句  12345678910111213141516171819202122232425262728#建表CREATE TABLE &#96;movies&#96; (  &#96;id&#96; int(11) NOT NULL AUTO_INCREMENT,  &#96;title&#96; varchar(20) DEFAULT NULL,  &#96;year&#96; int(11) DEFAULT NULL,  &#96;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;1.png">
-<meta property="og:updated_time" content="2020-06-13T15:00:24.403Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;9.png">
+<meta property="og:updated_time" content="2020-06-14T05:28:58.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;mysql&#x2F;select-limit&#x2F;1.png">
 
@@ -365,6 +372,25 @@
       
         <p>在阿里的JAVA开发手册中有这么一句</p>
 <p><img src="/Blog/2020/06/13/mysql/select-limit/1.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#建表</span><br><span class="line">CREATE TABLE `movies` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `title` varchar(20) DEFAULT NULL,</span><br><span class="line">  `year` int(11) DEFAULT NULL,</span><br><span class="line">  `content` varchar(20) DEFAULT &apos;hxmyt&apos;,</span><br><span class="line">  PRIMARY KEY (`id`),</span><br><span class="line">  KEY `year_index` (`year`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">#创建存储过程，插入百万数据</span><br><span class="line">CREATE DEFINER=`root`@`localhost` PROCEDURE `randomMovies`()</span><br><span class="line">begin</span><br><span class="line">declare i int default 0;</span><br><span class="line">while i &lt;= 1000000 do</span><br><span class="line"> insert into movies(title, year) values(substring(md5(rand()),1,8), floor(1970 + rand() * 50));</span><br><span class="line">set i = i + 1;</span><br><span class="line">end while;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">#修改存储引擎位MySIAM</span><br><span class="line">ALTER TABLE movies ENGINE=MySIAM;</span><br><span class="line">#调用存储过程出入记录</span><br><span class="line">call randomMovies();</span><br><span class="line">call randomMovies();</span><br><span class="line">call randomMovies();</span><br><span class="line">#修改存储引擎位INNODB</span><br><span class="line">ALTER TABLE movies ENGINE=INNODB;</span><br></pre></td></tr></table></figure>
+
+<p>第一次查询<br><img src="/Blog/2020/06/13/mysql/select-limit/2.png" alt><br>耗时3.2秒</p>
+<p>尝试limit优化<br><img src="/Blog/2020/06/13/mysql/select-limit/3.png" alt></p>
+<p>速度确实变快了，但出现了两个新的问题</p>
+<p>1.第一次查询为什么会变慢？</p>
+<p>2.优化后返回的结果集与有优化前不同</p>
+<p>猜测问题一：第二次调用使用了缓存</p>
+<p>验证：使用SQL_NO_CACHE</p>
+<p><img src="/Blog/2020/06/13/mysql/select-limit/4.png" alt><br>没有区别,难道不是缓存的原因？</p>
+<p>问题二：explain试一下<br><img src="/Blog/2020/06/13/mysql/select-limit/5.png" alt><br>发现扫描的行数为与总行数不同</p>
+<p>查了一下是预估值，那可能是因为索引排序有问题，3000000放在293975后面</p>
+<p>尝试下排序</p>
+<p><img src="/Blog/2020/06/13/mysql/select-limit/6.png" alt></p>
+<p>排序后要3秒之久</p>
+<p>更换排序条件为year<br><img src="/Blog/2020/06/13/mysql/select-limit/7.png" alt></p>
+<p>速度很快，而且结果和不加排序居然一样，才发现两道查询都默认使用了year为索引<br><img src="/Blog/2020/06/13/mysql/select-limit/9.png" alt><br>当使用主键索引的时候速度会变慢</p>
+<p>猜测：都产生了覆盖索引，但是主键叶子节点就是行数据，加载起来会非常慢，<br>辅组索引叶子节点是主键，加载更快。</p>
+<p>验证方式：待定</p>
 
       
     </div>
@@ -409,7 +435,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Blog/2020/06/13/hello-world/" rel="prev" title="Hello World">
+              <a href="/Blog/2020/06/14/hello-world/" rel="prev" title="Hello World">
                 Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
