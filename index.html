@@ -290,7 +290,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-14T13:28:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-14T15:44:57+08:00">
                 2020-06-14
               </time>
             
@@ -527,6 +527,15 @@
 <p>速度很快，而且结果和不加排序居然一样，才发现两道查询都默认使用了year为索引<br><img src="/Blog/2020/06/13/mysql/select-limit/9.png" alt><br>当使用主键索引的时候速度会变慢</p>
 <p>猜测：都产生了覆盖索引，但是主键叶子节点就是行数据，加载起来会非常慢，<br>辅组索引叶子节点是主键，加载更快。</p>
 <p>验证方式：待定</p>
+<p>尝试了下profile和查询表状态<br><img src="/Blog/2020/06/13/mysql/select-limit/10.png" alt><br><img src="/Blog/2020/06/13/mysql/select-limit/11.png" alt><br>发现时间都花在send data上，而且产生了极多的内存碎片</p>
+<p>尝试了下optimize table 和alter table movies engine=innodb<br>都优化不掉内存碎片</p>
+<p>未解决问题： </p>
+<ul>
+<li>第一次查询慢，第二次查询快到底是不是缓存问题？</li>
+<li>如何验证主键叶子节点加载时会载入所有数据</li>
+<li>send data包含加载数据的时间吗?</li>
+<li>为什么会出现这么多内存碎片，如何优化？</li>
+</ul>
 
           
         
