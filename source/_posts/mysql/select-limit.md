@@ -88,3 +88,19 @@ ALTER TABLE movies ENGINE=INNODB;
 
 验证方式：待定
 
+尝试了下profile和查询表状态
+![](select-limit/10.png)
+![](select-limit/11.png)
+发现时间都花在send data上，而且产生了极多的内存碎片
+
+尝试了下optimize table 和alter table movies engine=innodb
+都优化不掉内存碎片
+
+未解决问题： 
+
+* 第一次查询慢，第二次查询快到底是不是缓存问题？
+* 如何验证主键叶子节点加载时会载入所有数据
+* send data包含加载数据的时间吗?
+* 为什么会出现这么多内存碎片，如何优化？
+
+
