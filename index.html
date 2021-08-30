@@ -259,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/08/26/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/08/30/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hsj">
@@ -278,7 +278,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Blog/2021/08/26/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/Blog/2021/08/30/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-27T00:46:22+08:00">
-                2021-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-30T15:53:27+08:00">
+                2021-08-30
               </time>
             
 
@@ -309,9 +309,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Blog/2021/08/26/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/Blog/2021/08/30/hello-world/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2021/08/26/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2021/08/30/hello-world/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,6 +355,186 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/08/28/mongoDB/Pipline%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hsj">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Blog/uploads/heibai.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HSJ_BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Blog/2021/08/28/mongoDB/Pipline%E6%9F%A5%E8%AF%A2/" itemprop="url">MongoDB--Pipline查询</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-28T22:29:31+08:00">
+                2021-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/Blog/categories/MongoDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongoDB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Blog/2021/08/28/mongoDB/Pipline%E6%9F%A5%E8%AF%A2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2021/08/28/mongoDB/Pipline查询/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Pipline-管道-查询"><a href="#Pipline-管道-查询" class="headerlink" title="Pipline(管道) 查询"></a>Pipline(管道) 查询</h1><p>MongoDB通过Pipline(管道)来支持复杂的查询（分组，聚合函数，联表。。。）</p>
+<p>Pipline定义了一系列的Stage来处理document，每一个Stage的输入是一个或多个Stage，输出也是一个或多个document，document就像管道里的水一样，从一个Stage流入另一个Stage。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.aggregate( [ &#123; &lt;stage&gt; &#125;, ... ] )</span><br></pre></td></tr></table></figure>
+
+<h2 id="Stage"><a href="#Stage" class="headerlink" title="Stage"></a>Stage</h2><h3 id="addFields"><a href="#addFields" class="headerlink" title="$addFields"></a>$addFields</h3><p>添加新的字段到文档中，在MongoDB4.2后更名为$set,并保留$addFields</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="1-添加新字段或覆盖已存在的字段，支持聚合函数"><a href="#1-添加新字段或覆盖已存在的字段，支持聚合函数" class="headerlink" title="1.添加新字段或覆盖已存在的字段，支持聚合函数"></a>1.添加新字段或覆盖已存在的字段，支持聚合函数</h4><p><code>INPUT</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  student: "Maya",</span><br><span class="line">  homework: [ 10, 5, 10 ],</span><br><span class="line">  quiz: [ 10, 8 ],</span><br><span class="line">  extraCredit: 0</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  _id: 2,</span><br><span class="line">  student: "Ryan",</span><br><span class="line">  homework: [ 5, 6, 5 ],</span><br><span class="line">  quiz: [ 8, 8 ],</span><br><span class="line">  extraCredit: 8</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Stage</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">db.scores.aggregate( [</span><br><span class="line">   &#123;</span><br><span class="line">     $addFields: &#123;</span><br><span class="line">       totalHomework: &#123; <span class="attr">$sum</span>: <span class="string">"$homework"</span> &#125; ,</span><br><span class="line">       totalQuiz: &#123; <span class="attr">$sum</span>: <span class="string">"$quiz"</span> &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   &#123;</span><br><span class="line">     $addFields: &#123; <span class="attr">totalScore</span>:</span><br><span class="line">       &#123; <span class="attr">$add</span>: [ <span class="string">"$totalHomework"</span>, <span class="string">"$totalQuiz"</span>, <span class="string">"$extraCredit"</span> ] &#125; &#125;</span><br><span class="line">   &#125;</span><br><span class="line">] )</span><br></pre></td></tr></table></figure>
+
+<p><code>OUTPUT</code>:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"_id"</span> : <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"student"</span> : <span class="string">"Maya"</span>,</span><br><span class="line">  <span class="attr">"homework"</span> : [ <span class="number">10</span>, <span class="number">5</span>, <span class="number">10</span> ],</span><br><span class="line">  <span class="attr">"quiz"</span> : [ <span class="number">10</span>, <span class="number">8</span> ],</span><br><span class="line">  <span class="attr">"extraCredit"</span> : <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"totalHomework"</span> : <span class="number">25</span>,</span><br><span class="line">  <span class="attr">"totalQuiz"</span> : <span class="number">18</span>,</span><br><span class="line">  <span class="attr">"totalScore"</span> : <span class="number">43</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"_id"</span> : <span class="number">2</span>,</span><br><span class="line">  <span class="attr">"student"</span> : <span class="string">"Ryan"</span>,</span><br><span class="line">  <span class="attr">"homework"</span> : [ <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span> ],</span><br><span class="line">  <span class="attr">"quiz"</span> : [ <span class="number">8</span>, <span class="number">8</span> ],</span><br><span class="line">  <span class="attr">"extraCredit"</span> : <span class="number">8</span>,</span><br><span class="line">  <span class="attr">"totalHomework"</span> : <span class="number">16</span>,</span><br><span class="line">  <span class="attr">"totalQuiz"</span> : <span class="number">16</span>,</span><br><span class="line">  <span class="attr">"totalScore"</span> : <span class="number">40</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-支持向嵌入文档添加新字段"><a href="#2-支持向嵌入文档添加新字段" class="headerlink" title="2.支持向嵌入文档添加新字段"></a>2.支持向嵌入文档添加新字段</h4><p><code>INPUT</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; _id: 1, type: "car", specs: &#123; doors: 4, wheels: 4 &#125; &#125;</span><br><span class="line">&#123; _id: 2, type: "motorcycle", specs: &#123; doors: 0, wheels: 2 &#125; &#125;</span><br><span class="line">&#123; _id: 3, type: "jet ski" &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Stage</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.vehicles.aggregate( [</span><br><span class="line">        &#123;</span><br><span class="line">           $addFields: &#123;</span><br><span class="line">              "specs.fuel_type": "unleaded"</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">   ] )</span><br></pre></td></tr></table></figure>
+
+<p><code>OUTPUT</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123; _id: 1, type: "car",</span><br><span class="line">   specs: &#123; doors: 4, wheels: 4, fuel_type: "unleaded" &#125; &#125;</span><br><span class="line">&#123; _id: 2, type: "motorcycle",</span><br><span class="line">   specs: &#123; doors: 0, wheels: 2, fuel_type: "unleaded" &#125; &#125;</span><br><span class="line">&#123; _id: 3, type: "jet ski",</span><br><span class="line">   specs: &#123; fuel_type: "unleaded" &#125; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-支持向数组字段添加新元素"><a href="#2-支持向数组字段添加新元素" class="headerlink" title="2.支持向数组字段添加新元素"></a>2.支持向数组字段添加新元素</h4><p><code>INPUT</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; _id: 1, student: "Maya", homework: [ 10, 5, 10 ], quiz: [ 10, 8 ], extraCredit: 0 &#125;</span><br><span class="line">&#123; _id: 2, student: "Ryan", homework: [ 5, 6, 5 ], quiz: [ 8, 8 ], extraCredit: 8 &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Stage</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.scores.aggregate([</span><br><span class="line">   &#123; $match: &#123; _id: 1 &#125; &#125;,</span><br><span class="line">   &#123; $addFields: &#123; homework: &#123; $concatArrays: [ "$homework", [ 7 ] ] &#125; &#125; &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p><code>OUTPUT</code>:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"_id"</span> : <span class="number">1</span>, <span class="attr">"student"</span> : <span class="string">"Maya"</span>, <span class="attr">"homework"</span> : [ <span class="number">10</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">7</span> ], <span class="attr">"quiz"</span> : [ <span class="number">10</span>, <span class="number">8</span> ], <span class="attr">"extraCredit"</span> : <span class="number">0</span> &#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1729,7 +1909,7 @@
               
                 <a href="/Blog/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1740,7 +1920,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/Blog/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1751,7 +1931,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/Blog/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
