@@ -259,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/08/30/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/08/31/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hsj">
@@ -278,7 +278,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Blog/2021/08/30/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/Blog/2021/08/31/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-30T17:35:57+08:00">
-                2021-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-01T00:39:42+08:00">
+                2021-09-01
               </time>
             
 
@@ -309,9 +309,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Blog/2021/08/30/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/Blog/2021/08/31/hello-world/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2021/08/30/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2021/08/31/hello-world/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1152,7 +1152,61 @@
           
             <h2 id="堆是什么"><a href="#堆是什么" class="headerlink" title="堆是什么"></a>堆是什么</h2><p>物理上：一个数组<br>逻辑上：堆(Heap)是一棵完全的二叉树，值存储在树的每一个节点上，且具备偏序关系（简单理解为部分有序）</p>
 <p>大顶堆：父节点大于或等于子节点的树<br>小顶堆：父节点小于或等于子节点的树</p>
-<h2 id="偏序关系"><a href="#偏序关系" class="headerlink" title="偏序关系"></a>偏序关系</h2><h3 id="构建堆"><a href="#构建堆" class="headerlink" title="构建堆"></a>构建堆</h3><h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p><img src="/Blog/2020/06/13/algorithm/%E5%A4%A7%E9%A1%B6%E5%A0%86%E5%92%8C%E5%B0%8F%E9%A1%B6%E5%A0%86/%E6%97%A0%E5%BA%8F.png" alt></p>
+<h2 id="偏序关系"><a href="#偏序关系" class="headerlink" title="偏序关系"></a>偏序关系</h2><h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p><img src="/Blog/2020/06/13/algorithm/%E5%A4%A7%E9%A1%B6%E5%A0%86%E5%92%8C%E5%B0%8F%E9%A1%B6%E5%A0%86/%E6%97%A0%E5%BA%8F.png" alt title="图1.1"></p>
+<p>节点的编号即数组的索引，可得：<br>设最小编号0，最大编号n<br>对任意节点编号k,则<br>父节点编号 p= (k - 1) / 2<br>左子节点编号 l= k * 2 + 1<br>右子节点编号 r= k * 2 + 2</p>
+<p>最后一个非叶子节点 f=(n - 1) / 2</p>
+<h3 id="构建堆（eg-小顶堆）"><a href="#构建堆（eg-小顶堆）" class="headerlink" title="构建堆（eg: 小顶堆）"></a>构建堆（eg: 小顶堆）</h3><p>需要进行堆操作时，我们可能要面临三种情况<br>对于一个无序的数组，我们需要</p>
+<ol>
+<li>将一个无序数组调整为堆</li>
+</ol>
+<p>对于一个堆，我们可能对其：</p>
+<ol>
+<li>添加一个元素到堆中</li>
+<li>从堆中删除一个元素</li>
+</ol>
+<h4 id="将一个无序数组调整为堆"><a href="#将一个无序数组调整为堆" class="headerlink" title="将一个无序数组调整为堆"></a>将一个无序数组调整为堆</h4><p>步骤</p>
+<ol>
+<li>找到最后一个非叶子节点r</li>
+<li>使k = r</li>
+<li>k &lt;= f继续，否则执行6</li>
+<li>如果k比左右子节点都小，则执行6。否则，与左右子节点中最小的那个交换值</li>
+<li>重复2-4步骤</li>
+<li>r = r - 1</li>
+<li>重复2-6步骤, 直到r &lt; 0</li>
+</ol>
+<p>以上步骤可分为两部分操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 从后往前遍历所有非叶子节点，即步骤1-7</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 对当前非叶子节点做下沉操作，使以当前非叶子节点为</span></span><br><span class="line"><span class="comment">* 根节点的树调整小顶堆,即步骤3-5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加一个元素到堆中"><a href="#添加一个元素到堆中" class="headerlink" title="添加一个元素到堆中"></a>添加一个元素到堆中</h4><p>步骤</p>
+<ol>
+<li>将新元素添加到堆尾，此时新元素编号k = size - 1</li>
+<li>k &gt; 0 继续，否则结束</li>
+<li>新元素与父节点比较，大于父节点则结束，小于父节点，则与父节点交换值，此时k = (k - 1) / 2</li>
+<li>重复2-3步骤</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 对当前叶子节点做上升操作，即步骤2-4</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="从堆中删除一个元素"><a href="#从堆中删除一个元素" class="headerlink" title="从堆中删除一个元素"></a>从堆中删除一个元素</h4><p>步骤</p>
+<ol>
+<li>找到元素对应的编号k 并使start = k</li>
+<li>k与队尾元素交换值 </li>
+<li>下沉k元素</li>
+<li>如果start == k，则对k上升，否则结束</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* k与队尾元素交换后先下沉后上升</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
 
           
         
