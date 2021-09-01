@@ -240,6 +240,9 @@ db.artists.aggregate( [
 
 
 
+## $bucketAuto（待续）
+> [$bucketAuto](https://docs.mongodb.com/manual/reference/operator/aggregation/bucketAuto/)
+
 ## $facet
 
 可定义多个子Pipline，将输入document交由各个子Pipline独立处理，并将子pipline输出的document赋予子pipline对应的outputField
