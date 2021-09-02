@@ -259,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/09/01/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/09/02/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hsj">
@@ -278,7 +278,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Blog/2021/09/01/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/Blog/2021/09/02/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-01T17:19:54+08:00">
-                2021-09-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-03T00:33:51+08:00">
+                2021-09-03
               </time>
             
 
@@ -309,9 +309,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Blog/2021/09/01/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/Blog/2021/09/02/hello-world/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2021/09/01/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2021/09/02/hello-world/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -402,7 +402,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/09/01/mongoDB/%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/09/02/mongoDB/%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hsj">
@@ -421,7 +421,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Blog/2021/09/01/mongoDB/%E6%8E%92%E5%BA%8F/" itemprop="url">mongoDB/排序</a></h1>
+                <a class="post-title-link" href="/Blog/2021/09/02/mongoDB/%E6%8E%92%E5%BA%8F/" itemprop="url">mongoDB/排序</a></h1>
         
 
         <div class="post-meta">
@@ -433,8 +433,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-01T17:19:54+08:00">
-                2021-09-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-03T00:33:51+08:00">
+                2021-09-03
               </time>
             
 
@@ -452,9 +452,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Blog/2021/09/01/mongoDB/%E6%8E%92%E5%BA%8F/#comments" itemprop="discussionUrl">
+                <a href="/Blog/2021/09/02/mongoDB/%E6%8E%92%E5%BA%8F/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2021/09/01/mongoDB/排序/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2021/09/02/mongoDB/排序/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1308,9 +1308,9 @@
 <li>重复2-6步骤, 直到r &lt; 0</li>
 </ol>
 <p>以上步骤可分为两部分操作：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 从后往前遍历所有非叶子节点，即步骤1-7</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 从后往前遍历所有非叶子节点，即步骤1-7</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = findLastNonLeaf(); i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            siftDown(i, elements(i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 对当前非叶子节点做下沉操作，使以当前非叶子节点为</span></span><br><span class="line"><span class="comment">* 根节点的树调整小顶堆,即步骤3-5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 对当前非叶子节点做下沉操作，使以当前非叶子节点为</span></span><br><span class="line"><span class="comment">* 根节点的树调整小顶堆,即步骤3-5</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">siftDown</span><span class="params">(<span class="keyword">int</span> k,E e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lastNonLeaf = findLastNonLeaf();</span><br><span class="line">        <span class="keyword">while</span> (k &lt;= lastNonLeaf) &#123;</span><br><span class="line">            <span class="keyword">int</span> min = findLeftChild(k);</span><br><span class="line">            E child = elements(min);</span><br><span class="line">            <span class="keyword">int</span> right = min + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (right &lt; size &amp;&amp; child.compareTo(elements(right)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                child = elements(min = right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (e.compareTo(child) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            elements[k] = child;</span><br><span class="line">            k = min;</span><br><span class="line">        &#125;</span><br><span class="line">        elements[k] = e;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="添加一个元素到堆中"><a href="#添加一个元素到堆中" class="headerlink" title="添加一个元素到堆中"></a>添加一个元素到堆中</h4><p>步骤</p>
 <ol>
@@ -1329,7 +1329,7 @@
 <li>下沉k元素</li>
 <li>如果start == k，则对k上升，否则结束</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* k与队尾元素交换后先下沉后上升</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* k与队尾元素交换后先下沉后上升</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">siftUp</span><span class="params">(<span class="keyword">int</span> k, E e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> parentIndex = findParent(k);</span><br><span class="line">            E parent = elements(parentIndex);</span><br><span class="line">            <span class="keyword">if</span> (e.compareTo(parent) &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            elements[k] = parent;</span><br><span class="line">            k = parentIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        elements[k] = e;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 
