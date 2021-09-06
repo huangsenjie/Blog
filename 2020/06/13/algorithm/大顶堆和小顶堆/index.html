@@ -88,7 +88,7 @@
 <meta property="og:description" content="堆是什么物理上：一个数组逻辑上：堆(Heap)是一棵完全的二叉树，值存储在树的每一个节点上，且具备偏序关系（简单理解为部分有序） 大顶堆：父节点大于或等于子节点的树小顶堆：父节点小于或等于子节点的树 偏序关系完全二叉树 节点的编号即数组的索引，可得：设最小编号0，最大编号n对任意节点编号k,则父节点编号 p= (k - 1) &#x2F; 2左子节点编号 l= k * 2 + 1右子节点编号 r= k *">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;algorithm&#x2F;%E5%A4%A7%E9%A1%B6%E5%A0%86%E5%92%8C%E5%B0%8F%E9%A1%B6%E5%A0%86&#x2F;%E6%97%A0%E5%BA%8F.png">
-<meta property="og:updated_time" content="2021-09-02T16:33:51.728Z">
+<meta property="og:updated_time" content="2021-09-06T16:05:45.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2020&#x2F;06&#x2F;13&#x2F;algorithm&#x2F;%E5%A4%A7%E9%A1%B6%E5%A0%86%E5%92%8C%E5%B0%8F%E9%A1%B6%E5%A0%86&#x2F;%E6%97%A0%E5%BA%8F.png">
 
@@ -411,16 +411,7 @@
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* k与队尾元素交换后先下沉后上升</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">siftUp</span><span class="params">(<span class="keyword">int</span> k, E e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> parentIndex = findParent(k);</span><br><span class="line">            E parent = elements(parentIndex);</span><br><span class="line">            <span class="keyword">if</span> (e.compareTo(parent) &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            elements[k] = parent;</span><br><span class="line">            k = parentIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        elements[k] = e;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
+<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3>
       
     </div>
     
@@ -452,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Blog/2020/06/13/mysql/select-limit/" rel="next" title="MySQL在Select中使用Limit的优化问题">
-                <i class="fa fa-chevron-left"></i> MySQL在Select中使用Limit的优化问题
+              <a href="/Blog/2019/12/18/mysql/server-client-communication-way/" rel="next" title="MySQL-server与client的通信方式">
+                <i class="fa fa-chevron-left"></i> MySQL-server与client的通信方式
               </a>
             
           </div>
@@ -462,8 +453,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Blog/2020/06/15/java/thread/process-thread/" rel="prev" title="Java多线程-进程与线程概述">
-                Java多线程-进程与线程概述 <i class="fa fa-chevron-right"></i>
+              <a href="/Blog/2020/06/13/mysql/select-limit/" rel="prev" title="MySQL在Select中使用Limit的优化问题">
+                MySQL在Select中使用Limit的优化问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +546,7 @@
               
                 <a href="/Blog/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -566,7 +557,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/Blog/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -577,7 +568,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/Blog/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -610,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆是什么"><span class="nav-number">1.</span> <span class="nav-text">堆是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#偏序关系"><span class="nav-number">2.</span> <span class="nav-text">偏序关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完全二叉树"><span class="nav-number">2.1.</span> <span class="nav-text">完全二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建堆（eg-小顶堆）"><span class="nav-number">2.2.</span> <span class="nav-text">构建堆（eg: 小顶堆）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将一个无序数组调整为堆"><span class="nav-number">2.2.1.</span> <span class="nav-text">将一个无序数组调整为堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加一个元素到堆中"><span class="nav-number">2.2.2.</span> <span class="nav-text">添加一个元素到堆中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从堆中删除一个元素"><span class="nav-number">2.2.3.</span> <span class="nav-text">从堆中删除一个元素</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆是什么"><span class="nav-number">1.</span> <span class="nav-text">堆是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#偏序关系"><span class="nav-number">2.</span> <span class="nav-text">偏序关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完全二叉树"><span class="nav-number">2.1.</span> <span class="nav-text">完全二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建堆（eg-小顶堆）"><span class="nav-number">2.2.</span> <span class="nav-text">构建堆（eg: 小顶堆）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将一个无序数组调整为堆"><span class="nav-number">2.2.1.</span> <span class="nav-text">将一个无序数组调整为堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加一个元素到堆中"><span class="nav-number">2.2.2.</span> <span class="nav-text">添加一个元素到堆中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从堆中删除一个元素"><span class="nav-number">2.2.3.</span> <span class="nav-text">从堆中删除一个元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度"><span class="nav-number">2.3.</span> <span class="nav-text">复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">2.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li></ol></div>
             
 
           </div>
