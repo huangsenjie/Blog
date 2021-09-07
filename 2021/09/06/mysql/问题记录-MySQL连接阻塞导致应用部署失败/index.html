@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MySQL,问题记录," />
 
 
 
@@ -79,14 +79,20 @@
 
 
 
-<meta name="keywords" content="JAVA, java, Java, spring, boot, mybatis, os">
+<meta name="description" content="环境： druid k8s mysql java spring boot  背景1测试服某个应用部署失败，失败原因反馈为k8s readiness探针检测失败，connection refused。  定位k8s的探针通过spring boot actuator提供的readiness和liveness健康检测提供，故先本地启动应用查看检测接口是否正常访问，启动后发现主线程main阻塞，等待一段时">
+<meta name="keywords" content="MySQL,问题记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongoDB&#x2F;排序">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;09&#x2F;06&#x2F;mongoDB&#x2F;%E6%8E%92%E5%BA%8F&#x2F;">
+<meta property="og:title" content="问题记录-MySQL连接阻塞导致应用部署失败">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;09&#x2F;06&#x2F;mysql&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5&#x2F;">
 <meta property="og:site_name" content="HSJ_BLOG">
+<meta property="og:description" content="环境： druid k8s mysql java spring boot  背景1测试服某个应用部署失败，失败原因反馈为k8s readiness探针检测失败，connection refused。  定位k8s的探针通过spring boot actuator提供的readiness和liveness健康检测提供，故先本地启动应用查看检测接口是否正常访问，启动后发现主线程main阻塞，等待一段时">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-09-06T16:05:45.584Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2021&#x2F;09&#x2F;06&#x2F;mysql&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2021&#x2F;09&#x2F;06&#x2F;mysql&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5(1).png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2021&#x2F;09&#x2F;06&#x2F;mysql&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5(2).png">
+<meta property="og:updated_time" content="2021-09-07T07:51:12.072Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;Blog&#x2F;2021&#x2F;09&#x2F;06&#x2F;mysql&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5&#x2F;%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5.png">
 
 
 
@@ -116,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/09/06/mongoDB/排序/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/09/06/mysql/问题记录-MySQL连接阻塞导致应用部署失败/"/>
 
 
 
 
 
-  <title>mongoDB/排序 | HSJ_BLOG</title>
+  <title>问题记录-MySQL连接阻塞导致应用部署失败 | HSJ_BLOG</title>
   
 
 
@@ -259,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/09/06/mongoDB/%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hsj">
@@ -276,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mongoDB/排序</h1>
+          <h1 class="post-title" itemprop="name headline">问题记录-MySQL连接阻塞导致应用部署失败</h1>
         
 
         <div class="post-meta">
@@ -288,7 +294,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-06T16:05:45+00:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-06T16:00:00+00:00">
                 2021-09-07
               </time>
             
@@ -299,6 +305,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/Blog/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -307,9 +335,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Blog/2021/09/06/mongoDB/%E6%8E%92%E5%BA%8F/#comments" itemprop="discussionUrl">
+                <a href="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2021/09/06/mongoDB/排序/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2021/09/06/mysql/问题记录-MySQL连接阻塞导致应用部署失败/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -337,7 +365,28 @@
       
 
       
-        
+        <h3 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h3><ol>
+<li>druid</li>
+<li>k8s</li>
+<li>mysql</li>
+<li>java</li>
+<li>spring boot</li>
+</ol>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试服某个应用部署失败，失败原因反馈为k8s readiness探针检测失败，connection refused。</span><br></pre></td></tr></table></figure>
+
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p>k8s的探针通过spring boot actuator提供的readiness和liveness健康检测提供，故先本地启动应用<br>查看检测接口是否正常访问，启动后发现主线程main阻塞，等待一段时间后抛出MySQL连接重试失败异常，由此<br>可判定MySQL连接失败导致的问题，主线程阻塞时间过长，无法接收请求导致k8s探针请求connection refused。</p>
+<h3 id="为什么长时间阻塞"><a href="#为什么长时间阻塞" class="headerlink" title="为什么长时间阻塞"></a>为什么长时间阻塞</h3><p>现场：<br><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5.png" alt></p>
+<p>查看对MySQL的连接配置信息：应用使用druid管理连接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置了最大连接等待时间<span class="number">60</span>秒</span><br><span class="line">druidDataSource.setMaxWait(<span class="number">60000</span>);</span><br></pre></td></tr></table></figure>
+<p>由上诉异常信息可知连接重试了3次<br>但应用并未显式配置重试次数<br>猜测使用了默认配置<br>（1） 查看druid是否有重试配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connectCount = 0</span><br><span class="line">只看到一个关于连接次数的配置，但其默认值为0，与3次重试结果不符，应该不是这个</span><br></pre></td></tr></table></figure>
+
+<p>（2）查看MySQL Connector 配置</p>
+<p>com.mysql.cj.conf.PropertyKey类定义了相关的连接配置<br><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5(1).png" alt></p>
+<p>com.mysql.cj.conf.PropertyDefinitions为配置属性做了初始化，并将最大连接重试次数设置为3</p>
+<p><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5(2).png" alt></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>根本原因为原来的服务器下线，迁移到了新的实例，而应用的配置未更新<br>把配置更新解决了</p>
+
       
     </div>
     
@@ -351,6 +400,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/Blog/tags/MySQL/" rel="tag"># MySQL</a>
+          
+            <a href="/Blog/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag"># 问题记录</a>
+          
+        </div>
       
 
       
@@ -371,8 +428,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Blog/2021/09/06/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/Blog/2021/09/07/mongoDB/%E6%8E%92%E5%BA%8F/" rel="prev" title="mongoDB/排序">
+                mongoDB/排序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -435,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -455,7 +521,7 @@
               
                 <a href="/Blog/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -477,7 +543,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/Blog/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -500,6 +566,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境："><span class="nav-number">1.</span> <span class="nav-text">环境：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位"><span class="nav-number">3.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么长时间阻塞"><span class="nav-number">4.</span> <span class="nav-text">为什么长时间阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">5.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -671,9 +753,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2021/09/06/mongoDB/%E6%8E%92%E5%BA%8F/';
-          this.page.identifier = '2021/09/06/mongoDB/排序/';
-          this.page.title = 'mongoDB/排序';
+          this.page.url = 'http://yoursite.com/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/';
+          this.page.identifier = '2021/09/06/mysql/问题记录-MySQL连接阻塞导致应用部署失败/';
+          this.page.title = '问题记录-MySQL连接阻塞导致应用部署失败';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-huangsenjie-github-io-blog.disqus.com/embed.js';
