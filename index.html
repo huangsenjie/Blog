@@ -290,7 +290,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-07T15:59:06+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-07T19:58:31+08:00">
                 2021-09-07
               </time>
             
@@ -433,7 +433,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-07T15:59:06+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-07T19:58:31+08:00">
                 2021-09-07
               </time>
             
@@ -647,7 +647,7 @@
 
 <h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p>k8s的探针通过spring boot actuator提供的readiness和liveness健康检测提供，故先本地启动应用<br>查看检测接口是否正常访问，启动后发现主线程main阻塞，等待一段时间后抛出MySQL连接重试失败异常，由此<br>可判定MySQL连接失败导致的问题，主线程阻塞时间过长，无法接收请求导致k8s探针请求connection refused。</p>
 <h3 id="为什么长时间阻塞"><a href="#为什么长时间阻塞" class="headerlink" title="为什么长时间阻塞"></a>为什么长时间阻塞</h3><p>现场：</p>
-<p><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5.png" alt></p>
+<p><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/%E5%BC%82%E5%B8%B8%E7%8E%B0%E5%9C%BA.png" alt></p>
 <p>查看对MySQL的连接配置信息：应用使用druid管理连接</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置了最大连接等待时间<span class="number">60</span>秒</span><br><span class="line">druidDataSource.setMaxWait(<span class="number">60000</span>);</span><br></pre></td></tr></table></figure>
 <p>由上诉异常信息可知连接重试了3次<br>但应用并未显式配置重试次数<br>猜测使用了默认配置<br>（1） 查看druid是否有重试配置</p>
@@ -655,9 +655,9 @@
 
 <p>（2）查看MySQL Connector 配置</p>
 <p>com.mysql.cj.conf.PropertyKey类定义了相关的连接配置</p>
-<p><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5(1).png" alt></p>
+<p><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/%E9%87%8D%E8%AF%95%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE.png" alt></p>
 <p>com.mysql.cj.conf.PropertyDefinitions为配置属性做了初始化，并将最大连接重试次数设置为3</p>
-<p><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5(2).png" alt></p>
+<p><img src="/Blog/2021/09/06/mysql/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95-MySQL%E8%BF%9E%E6%8E%A5%E9%98%BB%E5%A1%9E%E5%AF%BC%E8%87%B4%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/%E9%87%8D%E8%AF%95%E8%BF%9E%E6%8E%A5%E9%BB%98%E8%AE%A4%E5%80%BC.png" alt></p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>根本原因为原来的服务器下线，迁移到了新的实例，而应用的配置未更新<br>把配置更新解决了</p>
 
           
