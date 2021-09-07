@@ -64,3 +64,6 @@ com.mysql.cj.conf.PropertyDefinitions为配置属性做了初始化，并将最�
 根本原因为原来的服务器下线，迁移到了新的实例，而应用的配置未更新
 把配置更新解决了
 
+![](select-limit/1.png)
+
+
