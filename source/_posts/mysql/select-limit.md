@@ -6,7 +6,7 @@ tags:
  - select
  - limit
 categories:
- - MySQL学习笔记
+ - MySQL
 ---
 
 在阿里的JAVA开发手册中有这么一句

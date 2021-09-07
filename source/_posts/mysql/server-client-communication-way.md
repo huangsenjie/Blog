@@ -5,7 +5,7 @@ tags:
  - MySQL
  - cs
 categories:
- - MySQL学习笔记
+ - MySQL
 ---
 
 # windows上的通信方式
