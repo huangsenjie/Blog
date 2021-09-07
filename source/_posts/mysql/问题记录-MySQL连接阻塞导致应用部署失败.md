@@ -30,7 +30,7 @@ k8s的探针通过spring boot actuator提供的readiness和liveness健康检测�
 ### 为什么长时间阻塞
 现场：
 
-![](问题记录/MySQL连接阻塞导致应用部署失败.png)
+![](问题记录/异常现场.png)
 
 查看对MySQL的连接配置信息：应用使用druid管理连接
 ```java
@@ -52,11 +52,11 @@ connectCount = 0
 
 com.mysql.cj.conf.PropertyKey类定义了相关的连接配置
 
-![](问题记录/MySQL连接阻塞导致应用部署失败(1).png)
+![](问题记录/重试连接配置.png)
 
 com.mysql.cj.conf.PropertyDefinitions为配置属性做了初始化，并将最大连接重试次数设置为3
 
-![](问题记录/MySQL连接阻塞导致应用部署失败(2).png)
+![](问题记录/重试连接默认值.png)
 
 
 ### 解决方案
