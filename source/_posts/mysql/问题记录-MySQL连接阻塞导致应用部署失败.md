@@ -33,8 +33,8 @@ k8s的探针通过spring boot actuator提供的readiness和liveness健康检测�
 ![](问题记录/异常现场.png)
 
 查看对MySQL的连接配置信息：应用使用druid管理连接
-```java
-设置了最大连接等待时间60秒
+```
+//设置了最大连接等待时间60秒
 druidDataSource.setMaxWait(60000);
 ```
 由上诉异常信息可知连接重试了3次
