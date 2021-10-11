@@ -1,0 +1,5 @@
+```java
+//以下代码会被优化，当map的结果没有被使用时，map不会执行
+stream.filter().map();
+
+```
